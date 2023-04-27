@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'lato',sans-serif;
+}
+body{
+    background-image: url(project-img.jpg);
+    background-size: cover;
+    background-attachment:fixed ;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.accordion{
+    width: 65%;
+    margin: 50px 0;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 10px 10px 8px rgba(0, 0,0, 0.8), -10px -10px 8px rgba(0, 0,0, 0.4);
+}
+.heading{
+    text-align: center;
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    color:red;
+    font-family:cursive;
+}
+.accordion .accordion-title{
+    margin-bottom:30px ;
+    text-align: center;   
+}
+.accordion .content-container .question{
+    padding: 18px 0;
+    font-size: 22px;
+    cursor: pointer;
+    border-bottom: 1px solid #000;
+    position: relative;
+}
+.accordion .content-container .question::after{
+    content: "+";
+    font-size: 30px;
+    position: absolute;
+    right: -5px;
+}
+.accordion .content-container .answer{
+    padding-top: 15px;
+    font-size: 18px;
+    line-height: 2em;
+    width: 100%;
+    margin-bottom: 40px;
+
+    display:none;
+    animation: animate .2s linear forwards;
+    transform-origin:top;
+}
+@keyframes animate {
+    0%{
+        transform: scaleY(0);
+    }
+}
+.card-footer{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 1.3rem;
+}
+.link{
+    color: green;
+}
+
+/* Transition will not work if the value of height is not set  to numeric values */
+
+/* javascript Styling Link  */
+.accordion .content-container.active .answer{
+    display: block;
+}
+.accordion .content-container.active .question{
+    font-size: 20px;
+    color: red;
+    transition: .5s;
+}
+.accordion .content-container.active .question::after{
+    content: '-';
+    font-size: 30px;
+    transition: .5s;
+}
+@media screen and (max-width: 720px) {
+    body{
+        align-items:flex-start;
+        height: 100%;
+        background-size:cover;
+    }
+    .accordion{
+        margin-top: 80px;
+        width: 90%;
+    }
+    .heading{
+        font-size: 2.8rem;
+    }
+    .accordion .accordion-title{
+        font-size: 1.5rem;
+        margin-bottom:20px ;
+    }
+    .accordion .content-container .question{
+        font-size: 20px;
+    }.accordion .content-container .question::after{
+        right: -10px;
+    }
+    .accordion .content-container .answer{
+        font-size: 16px;
+
+    }
+    .card-footer{
+        font-size: 1.1rem;
+    }
+    /* javascript Styling Link  */
+    .accordion .content-container.active .answer{
+        height: auto;
+    }
+}
